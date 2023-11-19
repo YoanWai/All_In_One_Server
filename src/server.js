@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 require("./config/database");
+require('dotenv').config();
 
 app.use(express.static("public"));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -11,7 +14,3 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
-
-
-
-rsync -avz -e "ssh -p 22" /path/to/local/server/ your_username@server_ip:/path/to/destination/
